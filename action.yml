@@ -1,0 +1,20 @@
+name: 'Push Action'
+description: 'Push a subfolder to branch'
+branding:
+  icon: 'award'  
+  color: 'green'
+inputs:
+  branch: # id of input
+    description: 'which branch will publish'
+    required: true
+    default: 'test_push_action'
+  access_token:
+    description: 'github access token'
+    required: true
+  folder:
+    description: 'which folder will push'
+    required: true
+
+runs:
+  using: './'
+  image: 'wxdlong/hugo'
