@@ -34,9 +34,11 @@ cd $FOLDER
 if [ ! -z "$CNAME" ]; then
     {
         echo "${CNAME}" >CNAME
-        echo "write CNAME:${CNAME} to CNAME"
+        echo "write ${CNAME} to CNAME"
     }
 fi
+
+ls -lth
 
 COMMIT_NAME=wxdlong
 COMMIT_EMAIL=wxdlong@qq.com
@@ -50,7 +52,7 @@ git config --global user.email "${COMMIT_EMAIL}" &&
 
 git init
 git add --all
-git commit -m ${COMMIT_MSG}
+git commit -m "${COMMIT_MSG}"
 echo "git remote add origin ${REMOTE}"
 git remote add origin ${REMOTE}
 git push --force origin master:${BRANCH}
