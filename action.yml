@@ -4,17 +4,27 @@ branding:
   icon: 'award'  
   color: 'green'
 inputs:
-  branch: # id of input
-    description: 'which branch will publish'
-    required: true
-    default: 'test_push_action'
   access_token:
     description: 'github access token'
     required: true
   folder:
     description: 'which folder will push'
-    required: true
+    required: false
+    default: 'public'
+  branch: # id of input
+    description: 'which branch will publish'
+    required: false
+    default: 'test_push_action'
+  cname:
+    description: 'github page cname'
+    required: false
+    default: ''
 
 runs:
-  using: './'
-  image: 'wxdlong/hugo'
+  using: 'docker'
+  image: 'docker://alpine/git:1.0.7'
+  args:
+    - ${{ inputs.access_token }}
+    - ${{ inputs.folder }}
+    - ${{ inputs.branch }}
+    - ${{ inputs.cname }}
