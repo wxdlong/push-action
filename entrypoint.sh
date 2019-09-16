@@ -51,5 +51,6 @@ git config --global user.email "${COMMIT_EMAIL}" &&
 git init
 git add --all
 git commit -m ${COMMIT_MSG}
+echo "git remote add origin ${REMOTE}"
 git remote add origin ${REMOTE}
 git push --force origin master:${BRANCH}
